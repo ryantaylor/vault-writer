@@ -1,5 +1,11 @@
 use magnus::{function, prelude::*, Error, Ruby};
-use nom::{bytes::complete::{tag, take_until}, combinator::{map, verify}, number::complete::{le_u32, le_u8}, sequence::tuple, IResult};
+use nom::{
+    bytes::complete::{tag, take_until},
+    combinator::{map, verify},
+    number::complete::{le_u32, le_u8},
+    sequence::tuple,
+    IResult,
+};
 
 #[magnus::init]
 fn init(ruby: &Ruby) -> Result<(), Error> {
@@ -11,14 +17,14 @@ fn init(ruby: &Ruby) -> Result<(), Error> {
 fn save_marker_offset(input: &[u8]) -> IResult<&[u8], usize> {
     map(
         tuple((
-            take_until("DATAAUTO"),            
+            take_until("DATAAUTO"),
             tag("DATAAUTO"),
             verify(le_u32, |n| *n == 1),
             verify(le_u32, |n| *n == 1),
             verify(le_u32, |n| *n == 0),
-            verify(le_u8, |n| *n == 0 || *n == 1)
+            verify(le_u8, |n| *n == 0 || *n == 1),
         )),
-        |(slice, _, _, _, _, _): (&[u8], &[u8], u32, u32, u32, u8)| slice.len() + 20
+        |(slice, _, _, _, _, _): (&[u8], &[u8], u32, u32, u32, u8)| slice.len() + 20,
     )(input)
 }
 
