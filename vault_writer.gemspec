@@ -8,14 +8,14 @@ Gem::Specification.new do |spec|
   spec.authors = ["ryantaylor"]
   spec.email = ["2320507+ryantaylor@users.noreply.github.com"]
 
-  spec.summary = "Write a short summary, because RubyGems requires one."
-  spec.description = "Write a longer description or delete this line."
-  # spec.homepage = "Put your gem's website or public repo URL here."
+  spec.summary = "Small utility for modifying CoH3 replay files."
+  spec.description = "Helper functions for manipulating and modifying CoH3 replays."
+  spec.homepage = "https://github.com/ryantaylor/vault-writer"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.0.0"
   spec.required_rubygems_version = ">= 3.3.11"
 
-  spec.metadata["allowed_push_host"] = "Set to your gem server 'https://example.com'"
+  # spec.metadata["allowed_push_host"] = "Set to your gem server 'https://example.com'"
 
   # spec.metadata["homepage_uri"] = spec.homepage
   # spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
